@@ -43,8 +43,9 @@ export default function showTransactionOverlay() {
     addPostingRow(form);
     addPostingRow(form);
     $.delegate(form, 'keyup', '.number', (event) => {
-      if (event.key == '/') {
-        event.target.value = parseFloat(event.target.value) / 2
+      if (event.key === '/') {
+        // eslint-disable-next-line no-param-reassign
+        event.target.value = parseFloat(event.target.value) / 2;
       }
     });
     initialized = true;
