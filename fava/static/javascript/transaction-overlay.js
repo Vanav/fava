@@ -42,6 +42,11 @@ export default function showTransactionOverlay() {
   if (!initialized) {
     addPostingRow(form);
     addPostingRow(form);
+    $.delegate(form, 'keyup', '.number', (event) => {
+      if (event.key == '/') {
+        event.target.value = parseFloat(event.target.value) / 2
+      }
+    });
     initialized = true;
   }
   $('#transaction').classList.add('shown');
