@@ -254,6 +254,13 @@ export default function initSourceEditor(name) {
       });
     }
   });
+
+  window.onbeforeunload = function(){
+    if (!editor.getDoc().isClean()) {
+      return 'Are you sure you want to leave?';
+    }
+    return;
+  }
 }
 
 e.on('page-loaded', () => {
